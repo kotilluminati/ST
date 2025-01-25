@@ -29,6 +29,7 @@ header .logo {
   font-size: 24px;
   font-weight: bold;
   text-transform: uppercase;
+  margin-left: 20px; /* Отступ слева для логотипа */
 }
 
 /* Навигационное меню */
@@ -43,6 +44,72 @@ header nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 16px;
+}
+
+/* Бургер-меню */
+.burger-menu {
+  display: none; /* По умолчанию скрыто */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  margin-right: 40px; /* Новый отступ справа */
+  transition: transform 0.3s ease;
+}
+
+.burger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Анимация бургер-меню в крестик */
+.burger-menu.active .burger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  /* Скрываем обычное меню */
+  header nav {
+    display: none;
+  }
+
+  /* Показываем бургер-меню */
+  .burger-menu {
+    display: flex;
+  }
+
+  /* Выпадающее меню */
+  header nav.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #003366;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  header nav.active ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 0;
+  }
+
+  header nav.active ul li a {
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+  }
 }
 
 /* Герой */
@@ -300,123 +367,4 @@ footer {
 
 .feedback-form button:hover {
   background-color: #e65c00;
-}
-
-/* Медиа-запросы для мобильных устройств */
-@media (max-width: 768px) {
-  /* Шапка */
-  header {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  header .logo {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  header nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-right: 0;
-  }
-
-  header nav ul li a {
-    font-size: 14px;
-  }
-
-  /* Герой */
-  .hero {
-    padding: 100px 20px;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  /* Раздел "О нас" */
-  .about {
-    padding: 30px 20px;
-  }
-
-  .about h2 {
-    font-size: 28px;
-  }
-
-  .about-content {
-    padding: 15px;
-  }
-
-  .about-content h3 {
-    font-size: 20px;
-  }
-
-  .about-content ul li {
-    font-size: 14px;
-  }
-
-  .about-content p {
-    font-size: 14px;
-  }
-
-  /* Услуги */
-  .services {
-    padding: 30px 20px;
-  }
-
-  .services h2 {
-    font-size: 28px;
-  }
-
-  .service-card {
-    padding: 15px;
-  }
-
-  .service-card h3 {
-    font-size: 20px;
-  }
-
-  .service-card ul li {
-    font-size: 14px;
-  }
-
-  /* Контакты */
-  .contacts {
-    padding: 30px 20px;
-  }
-
-  .contacts h2 {
-    font-size: 28px;
-  }
-
-  .contact-info {
-    padding: 15px;
-  }
-
-  .contact-info p {
-    font-size: 14px;
-  }
-
-  /* Футер */
-  footer {
-    padding: 15px;
-  }
-
-  /* Всплывающая кнопка и форма для мобильных устройств */
-  .feedback-button {
-    bottom: 10px;
-    right: 10px;
-    padding: 10px 15px;
-  }
-
-  .feedback-form {
-    bottom: 60px;
-    right: 10px;
-    width: 90%;
-    max-width: 300px;
-  }
 }
