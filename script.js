@@ -58,3 +58,20 @@ document.addEventListener('click', (event) => {
     feedbackForm.classList.remove('visible');
   }
 });
+
+// Логика для бургер-меню
+const burgerMenu = document.getElementById('burger-menu');
+const navMenu = document.getElementById('nav-menu');
+
+burgerMenu.addEventListener('click', () => {
+  burgerMenu.classList.toggle('active'); // Добавляем/убираем класс active
+  navMenu.classList.toggle('active'); // Открываем/закрываем меню
+});
+
+// Закрытие меню при клике вне его области
+document.addEventListener('click', (event) => {
+  if (!burgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
+    burgerMenu.classList.remove('active'); // Убираем анимацию
+    navMenu.classList.remove('active'); // Закрываем меню
+  }
+});
