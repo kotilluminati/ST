@@ -75,3 +75,14 @@ document.addEventListener('click', (event) => {
     navMenu.classList.remove('active'); // Закрываем меню
   }
 });
+// Анимация для строк таблицы
+document.addEventListener("DOMContentLoaded", function() {
+  const tableRows = document.querySelectorAll('.projects table tr');
+
+  tableRows.forEach((row, index) => {
+    setTimeout(() => {
+      row.style.opacity = 1;
+      row.style.transform = 'translateY(0)';
+    }, index * 200); // Задержка для каждой строки
+  });
+});
